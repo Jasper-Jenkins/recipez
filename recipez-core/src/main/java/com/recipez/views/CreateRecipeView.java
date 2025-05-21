@@ -1,23 +1,18 @@
 package com.recipez.views;
 
-import com.recipez.views.view_models.IngredientViewModel;
 import com.recipez.views.view_models.RecipeViewModel;
 
 import javafx.beans.binding.Bindings;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -25,7 +20,6 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
-import java.io.FileInputStream;
 
 import com.recipez.models.ObserverModel;
 import com.recipez.models.POJO.Ingredient;
@@ -167,6 +161,9 @@ public class CreateRecipeView extends GridPane implements Observer {
         this.lblRecipeIngredients.setAlignment(Pos.CENTER);
         this.lblRecipeInstructions.setAlignment(Pos.CENTER);
 
+        this.lblRecipeIngredients.setFont(GlobalValues.MEDIUM_FONT);
+        this.lblRecipeInstructions.setFont(GlobalValues.MEDIUM_FONT);
+
         this.hboxIngredientsToggleBox.getChildren().add(this.lblRecipeIngredients);
         this.hboxInstructionsToggleBox.getChildren().add(this.lblRecipeInstructions);
 
@@ -231,6 +228,7 @@ public class CreateRecipeView extends GridPane implements Observer {
 
         this.spaneIngredientsListHolder.setFitToHeight(true);
         this.spaneIngredientsListHolder.setPrefViewportHeight(500);
+        // this.spaneIngredientsListHolder.setMinWidth(300);
         this.spaneIngredientsListHolder.setFitToWidth(true);
       
         this.hboxAddIngredientChoices.setAlignment(Pos.CENTER);        
@@ -266,7 +264,7 @@ public class CreateRecipeView extends GridPane implements Observer {
        
         this.spaneInstructionsListHolder.setFitToHeight(true);
         this.spaneInstructionsListHolder.setPrefViewportHeight(500);
-        this.spaneInstructionsListHolder.setPrefViewportWidth(300);
+        // this.spaneInstructionsListHolder.setPrefViewportWidth(300);
         this.spaneInstructionsListHolder.setFitToWidth(true); 
         this.spaneInstructionsListHolder.setStyle(GlobalValues.COLOR_TEST_FORMATTING_ONE);
         
@@ -490,8 +488,7 @@ public class CreateRecipeView extends GridPane implements Observer {
         HBox hboxInstructionViewHolder = new HBox();
         Button btnDeleteInstruction = new Button("x");
         Region spacer = new Region();
-        HBox.setHgrow(spacer, Priority.ALWAYS);
-        
+        HBox.setHgrow(spacer, Priority.ALWAYS);        
         btnDeleteInstruction.setOnAction(e -> removeInstruction(hboxInstructionViewHolder));
         hboxInstructionViewHolder.getChildren().addAll(new Label(instruction), spacer, btnDeleteInstruction);
         this.vboxInstructionsList.getChildren().add(hboxInstructionViewHolder);
@@ -529,7 +526,8 @@ public class CreateRecipeView extends GridPane implements Observer {
     }
 
     //add ingredient from user input test copy
-    public void addIngredient(ActionEvent event){       
+    public void addIngredient(ActionEvent event){ 
+             
         System.out.println("addIngredientView.getIngredientName(ActionEvent event), ingredient name: " + this.addIngredientView.getIngredientName()+"\n");
         IngredientView ingredientView = new IngredientView(this.addIngredientView.getIngredientName(),"1", this.addIngredientView.getIngredientVolume(),this.addIngredientView.getIngredientUnitsOfVolume(), "1", "ounce");
         HBox hboxIngredientViewHolder = new HBox();
@@ -539,6 +537,7 @@ public class CreateRecipeView extends GridPane implements Observer {
         this.vboxIngredientsList.getChildren().add(hboxIngredientViewHolder);        
         // IngredientViewHolder.getChildren().addAll(this.vboxIngredientsList, btnDeleteIngredient);
         System.out.println("ObservableList<Node> recipeIngredientNodes size: " + recipeViewModel.recipeIngredientsNodesProperty().size()+"\n\n");
+        addIngredientView.resetAddIngredientView(); 
     }
 
     public void removeIngredient(HBox ingredientViewHolder){

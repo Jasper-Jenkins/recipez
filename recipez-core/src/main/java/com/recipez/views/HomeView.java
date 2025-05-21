@@ -154,3 +154,6 @@ public class HomeView extends Scene {
         }
     }
 }
+// create insta cart ability to order ingredients on line, option for produce and meat to be picked up manually.
+// Create two instruction types, prep instructions and cooking instructions
+// suggestive input for ingredients. start typing and it suggest ingredients based on input, and auto fills whatever you select

@@ -21,6 +21,8 @@ public class RecipeBookViewModel {
         for (String name : storage) {
             recipeBook.add(new Recipe(name, new ArrayList<Ingredient>(), new ArrayList<String>()));
         }
+
+        loadRecipe();
         //DO NOT GET HUNG UP on the above logic, that is NOT how we are loading our data into the app.
     }
 

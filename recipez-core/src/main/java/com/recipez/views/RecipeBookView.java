@@ -142,7 +142,7 @@ public class RecipeBookView extends StackPane implements Observer {
                 recipeBookViewModel.loadRecipe();
                 tableView.getItems().clear();
                 this.loadRecipes();
-                ((ObserverModel)this.dataStoreUpdater).setUpdate(CurrentUpdate.RECIPE);
+                ((ObserverModel)this.dataStoreUpdater).setUpdate(CurrentUpdate.NONE);
             break;
             case GROCERY:
             break;

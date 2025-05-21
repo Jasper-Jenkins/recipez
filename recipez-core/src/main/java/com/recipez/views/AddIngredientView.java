@@ -60,4 +60,23 @@ public class AddIngredientView extends HBox{
         return this.cboxUnitsOfVolume.getValue();
     }
   
+    public void resetIngredientName(){
+        this.tfIngredientNameInput.setText(" ");
+    }
+
+    public void resetIngredientVolume(){
+        this.cboxVolume.setValue(" ");
+    }
+
+    public void resetIngredientUnitsOfVolume(){
+        this.cboxUnitsOfVolume.setValue(" ");
+    }
+
+    public void resetAddIngredientView(){
+        this.resetIngredientName();
+        this.resetIngredientVolume();
+        this.resetIngredientUnitsOfVolume();
+    }
+
+
 }
