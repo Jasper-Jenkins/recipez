@@ -480,7 +480,10 @@ public class CreateRecipeView extends GridPane implements Observer {
     }   
 
     public void update(CurrentUpdate update) {
-        //For now CreateRecipeView isnt looking for any updates. so it doesnt matter what the current update is.
+        //if recipe is saved properly. it will erase it
+        if(update == CurrentUpdate.RECIPE){
+            recipeViewModel.resetRecipeAll();
+        }
     }
 
     // adding instruction when loading a recipe
