@@ -41,6 +41,9 @@ public class AddIngredientView extends HBox{
     
         this.cboxUnitsOfVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING+GlobalValues.SMALL_FONT_FAMILY_STRING);
     
+        this.cboxUnitsOfVolume.setMinWidth(80);
+        this.cboxUnitsOfVolume.setMaxWidth(80);
+        this.cboxUnitsOfVolume.setPrefWidth(80);
 
         this.cboxVolume.getItems().setAll(GlobalValues.VOLUMEVALUES);
         this.cboxUnitsOfVolume.getItems().setAll(GlobalValues.UNITSOFVOLUMEVALUES);

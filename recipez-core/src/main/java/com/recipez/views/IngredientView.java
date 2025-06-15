@@ -117,7 +117,9 @@ public class IngredientView extends HBox {
         this.tfIngredientNameInput.setMinWidth(200);
         this.tfIngredientNameInput.setFont(GlobalValues.SMALL_FONT);
         this.cboxVolume.setMinWidth(80);
-        this.cboxUnitsOfVolume.setMinWidth(80);
+        this.cboxUnitsOfVolume.setMinWidth(200);
+        this.cboxUnitsOfVolume.setMaxWidth(200);
+        this.cboxUnitsOfVolume.setPrefWidth(200);
         this.cboxVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING + GlobalValues.SMALL_FONT_FAMILY_STRING);
         this.cboxUnitsOfVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING + GlobalValues.SMALL_FONT_FAMILY_STRING);
         this.btnToggleEdit.setFont(GlobalValues.SMALL_FONT);

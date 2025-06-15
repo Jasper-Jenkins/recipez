@@ -143,7 +143,6 @@ public class CreateRecipeView extends GridPane implements Observer {
         }
     }
 
-
     private void ingredientsInstructionsHeader(){
         
         this.hboxIngredientsToggleBox = new HBox();
@@ -480,7 +479,7 @@ public class CreateRecipeView extends GridPane implements Observer {
     }   
 
     public void update(CurrentUpdate update) {
-        //if recipe is saved properly. it will erase it
+        //if recipe is saved properly. it will reset the UI here
         if(update == CurrentUpdate.RECIPE){
             recipeViewModel.resetRecipeAll();
         }
