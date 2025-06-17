@@ -34,21 +34,21 @@ public class AddIngredientView extends HBox{
         this.cboxWeight = new ChoiceBox<>();
         this.cboxUnitsOfWeight = new ChoiceBox<>();
         this.tfIngredientNameInput = new TextField("");
-    
-
-        this.tfIngredientNameInput.setFont(GlobalValues.SMALL_FONT);
-        this.cboxVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING+GlobalValues.SMALL_FONT_FAMILY_STRING);
-    
-        this.cboxUnitsOfVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING+GlobalValues.SMALL_FONT_FAMILY_STRING);
-    
-        this.cboxUnitsOfVolume.setMinWidth(80);
-        this.cboxUnitsOfVolume.setMaxWidth(80);
-        this.cboxUnitsOfVolume.setPrefWidth(80);
-
         this.cboxVolume.getItems().setAll(GlobalValues.VOLUMEVALUES);
         this.cboxUnitsOfVolume.getItems().setAll(GlobalValues.UNITSOFVOLUMEVALUES);
         
         this.getChildren().addAll(tfIngredientNameInput, cboxVolume, cboxUnitsOfVolume);
+
+        formatAddIngredientView();
+    }
+
+    public void formatAddIngredientView(){
+        this.tfIngredientNameInput.setFont(GlobalValues.SMALL_FONT);
+        this.cboxVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING+GlobalValues.SMALL_FONT_FAMILY_STRING);    
+        this.cboxUnitsOfVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING+GlobalValues.SMALL_FONT_FAMILY_STRING);    
+        this.cboxUnitsOfVolume.setMinWidth(80);
+        this.cboxUnitsOfVolume.setMaxWidth(80);
+        this.cboxUnitsOfVolume.setPrefWidth(80);
     }
 
     public String getIngredientName(){

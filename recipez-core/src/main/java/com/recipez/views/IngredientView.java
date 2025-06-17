@@ -9,7 +9,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 
 //This is a single Ingredient View, multiple of these will be stacked into VBox inside of CreateRecipeView.java
 public class IngredientView extends HBox {
@@ -75,10 +74,14 @@ public class IngredientView extends HBox {
         this.ingredientViewModel.setIngredientName(ingredientName);
        
         //need to add padding to these elements so they match up with the textfield and choiceboxes in the editable view
+        formatIngredientView();
+
+    } 
+
+    public void formatIngredientView(){
         this.lblIngredientName.setMinWidth(226);
         this.lblIngredientName.setMaxWidth(226);
         this.lblIngredientName.setStyle("-fx-padding: 6 0 0 11;"+GlobalValues.COLOR_TEST_FORMATTING_THREE);
-
         this.lblIngredientName.setFont(GlobalValues.SMALL_FONT);
         this.lblVolume.setMinWidth(80);
         this.lblUnitsOfVolume.setMinWidth(80);
@@ -86,13 +89,24 @@ public class IngredientView extends HBox {
         this.lblUnitsOfVolume.setFont(GlobalValues.SMALL_FONT);
         this.lblVolume.setStyle("-fx-padding: 6 0 0 12;");
         this.lblUnitsOfVolume.setStyle("-fx-padding: 6 0 0 12;");
-        this.lblVolume.setMinWidth(74);
-        this.lblUnitsOfVolume.setMinWidth(90);
-
+        this.lblVolume.setMinWidth(80);
+        this.lblUnitsOfVolume.setMinWidth(80);
         this.btnToggleEdit.setFont(GlobalValues.SMALL_FONT);
         this.btnDeleteIngredientView.setFont(GlobalValues.SMALL_FONT);
+    }
 
-    } 
+    public void formatIngredientViewEditable(){
+        this.tfIngredientNameInput.setMinWidth(200);
+        this.tfIngredientNameInput.setFont(GlobalValues.SMALL_FONT);
+        this.cboxVolume.setMinWidth(80);
+        this.cboxUnitsOfVolume.setMinWidth(80);
+        this.cboxUnitsOfVolume.setMaxWidth(80);
+        this.cboxUnitsOfVolume.setPrefWidth(80);
+        this.cboxVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING + GlobalValues.SMALL_FONT_FAMILY_STRING);
+        this.cboxUnitsOfVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING + GlobalValues.SMALL_FONT_FAMILY_STRING);
+        this.btnToggleEdit.setFont(GlobalValues.SMALL_FONT);
+    }
+    
 
     // Initializes elements for the ingredient View Editable
     public void createIngredientViewEditable(String ingredientName, String quantity, String volume, String unitsOfVolume, String weight, String unitOfWeight) {
@@ -112,17 +126,8 @@ public class IngredientView extends HBox {
         this.cboxUnitsOfVolume.getItems().addAll(GlobalValues.UNITSOFVOLUMEVALUES);
         this.cboxUnitsOfVolume.setValue(unitsOfVolume);
         // If this is the view that is shown first this may need to be set first too.
-        // this.ingredientViewModel.setIngredientName(ingredientName);
-        
-        this.tfIngredientNameInput.setMinWidth(200);
-        this.tfIngredientNameInput.setFont(GlobalValues.SMALL_FONT);
-        this.cboxVolume.setMinWidth(80);
-        this.cboxUnitsOfVolume.setMinWidth(200);
-        this.cboxUnitsOfVolume.setMaxWidth(200);
-        this.cboxUnitsOfVolume.setPrefWidth(200);
-        this.cboxVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING + GlobalValues.SMALL_FONT_FAMILY_STRING);
-        this.cboxUnitsOfVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING + GlobalValues.SMALL_FONT_FAMILY_STRING);
-        this.btnToggleEdit.setFont(GlobalValues.SMALL_FONT);
+        // this.ingredientViewModel.setIngredientName(ingredientName);    
+        formatIngredientViewEditable();  
     }
 
     public void populateIngredientView(){     
