@@ -53,6 +53,7 @@ public class IngredientView extends HBox {
     // Initializes elements for the ingredient View
     public void createIngredientView(String ingredientName, String quantity, String volume, String unitsOfVolume, String weight, String unitOfWeight){
         // System.out.println("IngredientView.creatIngredientView() ingredient name: "+ ingredientName);
+        // Initialize UI elements 
         this.lblIngredientName = new Label("");
         this.lblQuantity = new Label(quantity);
         this.lblVolume = new Label(volume);
@@ -65,9 +66,7 @@ public class IngredientView extends HBox {
         
         //not in use at the moment
         this.lblWeight = new Label(weight);
-        this.lblUnitsOfWeight = new Label(unitOfWeight);       
-       
-
+        this.lblUnitsOfWeight = new Label(unitOfWeight);          
         this.ingredientViewModel.setIngredientVolume(volume);
         this.ingredientViewModel.setIngredientUnitsOfVolume(unitsOfVolume);
         // Ingredient name needs to be set in the viewModel before the binding works.
@@ -79,32 +78,42 @@ public class IngredientView extends HBox {
     } 
 
     public void formatIngredientView(){
+        //format UI elements
         this.lblIngredientName.setMinWidth(226);
         this.lblIngredientName.setMaxWidth(226);
         this.lblIngredientName.setStyle("-fx-padding: 6 0 0 11;"+GlobalValues.COLOR_TEST_FORMATTING_THREE);
         this.lblIngredientName.setFont(GlobalValues.SMALL_FONT);
-        this.lblVolume.setMinWidth(80);
-        this.lblUnitsOfVolume.setMinWidth(80);
+     
         this.lblVolume.setFont(GlobalValues.SMALL_FONT);
         this.lblUnitsOfVolume.setFont(GlobalValues.SMALL_FONT);
         this.lblVolume.setStyle("-fx-padding: 6 0 0 12;");
         this.lblUnitsOfVolume.setStyle("-fx-padding: 6 0 0 12;");
         this.lblVolume.setMinWidth(80);
+        this.lblVolume.setMaxWidth(80);
+        this.lblVolume.setPrefWidth(80);
         this.lblUnitsOfVolume.setMinWidth(80);
+        this.lblUnitsOfVolume.setMaxWidth(80);
+        this.lblUnitsOfVolume.setPrefWidth(80);
         this.btnToggleEdit.setFont(GlobalValues.SMALL_FONT);
+        this.btnToggleEdit.setMinWidth(40);
+        this.btnToggleEdit.setMaxWidth(40);
+        this.btnToggleEdit.setPrefWidth(40);
         this.btnDeleteIngredientView.setFont(GlobalValues.SMALL_FONT);
     }
 
     public void formatIngredientViewEditable(){
+        //format UI elements
         this.tfIngredientNameInput.setMinWidth(200);
         this.tfIngredientNameInput.setFont(GlobalValues.SMALL_FONT);
         this.cboxVolume.setMinWidth(80);
+        this.cboxVolume.setMaxWidth(80);
+        this.cboxVolume.setPrefWidth(80);
         this.cboxUnitsOfVolume.setMinWidth(80);
         this.cboxUnitsOfVolume.setMaxWidth(80);
         this.cboxUnitsOfVolume.setPrefWidth(80);
         this.cboxVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING + GlobalValues.SMALL_FONT_FAMILY_STRING);
         this.cboxUnitsOfVolume.setStyle(GlobalValues.SMALL_FONT_SIZE_STRING + GlobalValues.SMALL_FONT_FAMILY_STRING);
-        this.btnToggleEdit.setFont(GlobalValues.SMALL_FONT);
+        // this.btnToggleEdit.setFont(GlobalValues.SMALL_FONT);
     }
     
 
@@ -127,6 +136,7 @@ public class IngredientView extends HBox {
         this.cboxUnitsOfVolume.setValue(unitsOfVolume);
         // If this is the view that is shown first this may need to be set first too.
         // this.ingredientViewModel.setIngredientName(ingredientName);    
+
         formatIngredientViewEditable();  
     }
 
